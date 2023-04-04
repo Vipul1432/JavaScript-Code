@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prime no</title>
+</head>
+
+<body>
+    <label for="start">Start Number : </label>
+    <input type="text" id="start">
+    <br>
+    <label for="end">End Number : </label>
+    <input type="text" id="n">
+    <button type="submit" onclick="primeNumber()">prime Number</button>
+    <p id="result"></p>
+    <script>
+        let start = document.getElementById("start");
+        let n = document.getElementById("n");
+
+        function primeNumber(start, n) {
+            var flag = false;
+            for (var i = start; i <= n; i++) {
+                for (var j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        flag = false;
+                        break;
+                    } else {
+                        flag = true;
+                    }
+                }
+                if (flag) {
+                    document.write(" " + i);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

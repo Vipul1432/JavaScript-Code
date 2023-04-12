@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Method</title>
+</head>
+
+<body>
+    <script>
+        var employee1 = {
+            firstName: "Vipul",
+            lastName: "Kumar"
+        };
+        var employee2 = {
+            firstName: "Divu",
+            lastName: "Tiwari"
+        };
+
+        function invite(greeting1, greeting2) {
+            console.log(
+                greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+            );
+        }
+
+        // Apply: Invokes the function with a given this value and allows you to pass in arguments as an array
+        invite.apply(employee1, ["Hello", "How are you?"]);
+        invite.apply(employee2, ["Hello", "How are you?"]);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind</title>
+</head>
+
+<body>
+    <script>
+        var employee1 = {
+            firstName: "Vipul",
+            lastName: "Kumar"
+        };
+        var employee2 = {
+            firstName: "Divu",
+            lastName: "Tiwari"
+        };
+
+        function invite(greeting1, greeting2) {
+            console.log(
+                greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
+            );
+        }
+
+        // bind: returns a new function, allowing you to pass any number of arguments
+        var inviteEmployee1 = invite.bind(employee1);
+        var inviteEmployee2 = invite.bind(employee2);
+        inviteEmployee1("Hello", "How are you?");
+        inviteEmployee2("Hello", "How are you?");
+    </script>
+</body>
+
+</html>

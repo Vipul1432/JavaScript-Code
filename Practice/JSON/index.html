@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Method</title>
+</head>
+
+<body>
+    <script>
+        fetch('./myDetail.json')
+            .then((response) => response.json())
+            .then((json) => {
+                let data = `<br>My name is Mr. ${json.name} <br>
+                I am ${json.age} years old <br>
+                I am ${json.gender} <br>
+                I am from ${json.address} <br>
+                You can contact me at ${json.contactNo}`;
+                document.write(data);
+            });
+
+        // let xhr = new XMLHttpRequest();
+        // xhr.open('GET', './myDetail.json', true);
+        //xhr.send();
+        //xhr.onload = () => {
+        //   if (xhr.status === 200) {
+        //     let jsonData = xhr.responseText;
+        // let data = JSON.parse(jsonData)
+        //   let renderData = `My name is ${data.name} <br>
+        // I am ${data.age} years old <br>
+        //  I am ${data.gender} <br>
+        //  I am from ${data.address} <br>
+        //  You can contact me at ${data.contactNo}`;
+        //  document.write(renderData);
+        //  }
+        // }
+
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", '/server', true);
+
+        // Send the proper header information along with the request
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = () => { // Call a function when the state changes.
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                // Request finished. Do processing here.
+            }
+        }
+        xhr.send("name=Divu&age=4&gender=male&address=NewDelhi&contactNo=123456789");
+        // xhr.send(new Int8Array());
+        // xhr.send(document);
+    </script>
+</body>
+
+</html>
